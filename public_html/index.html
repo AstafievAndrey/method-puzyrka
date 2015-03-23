@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Метод пузырька</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/lib.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>
+            var obj = new Task();
+            $(document).ready(function(){
+                
+                
+                $("#mass").on("click","#clear",function(){
+                    $("#fon").show(1000);
+                    $("#modal").show(1000);
+                    
+                });
+                
+                $("#mass").on("click","#random",function(){    
+                    obj.random();
+                });
+                
+                $(".cancel").click(function(){
+                    $("#modal").hide(1000);
+                    $("#fon").hide(1000);
+                    $("#result").hide(1000);
+                });
+                
+                $("#ok").click(function(){
+                    obj.ok_clear();
+                    $("#modal").hide(1000);
+                    $("#fon").hide(1000);
+                });
+                
+            });
+        </script>
+    </head>
+    <body style="background:grey;font-family:monospace;margin:0;">
+        <div id="result">
+            <div style="background:white;width:300px;position:absolute;top:20%;">
+                <div class="modal-head">
+                    Результат
+                </div>
+                <div class="modal-body">
+                    <div id="before"></div>
+                    <div id="after" style="margin-bottom:5px;"></div>
+                </div> 
+                <div class="modal-footer">
+                    <div class="cancel btn" style="margin-right:10px;">ОК</div>
+                </div> 
+            </div>
+        </div>
+        <div id="fon" style=""></div>
+        <div id="modal">
+            <div style="top:25%;position:absolute;background:white;width:250px;">
+                <div class="modal-head">
+                    Вы уверены?
+                </div>
+                <div>
+                    Нажав "Да" вы очистите содержимое таблицы
+                </div>
+                <div class="modal-footer">
+                    <div class="cancel">Отмена</div>
+                    <div id="ok">Да</div>
+                </div>
+            </div>
+        </div>
+        <div style="width:350px;margin:0px auto;">
+            <div style="margin-left:10px;">
+                Введите количество элементов массива
+                <input type="text" onkeypress="obj.number_up(event,this,true)" id="count">
+                <div class="btn" onclick="obj.build_grid()" style="display:inline-block;">Построить сетку</div>
+            </div>
+            <div style="max-width:300px;" id="mass">
+                
+            </div>
+        </div>
+    </body>
+</html>
