@@ -51,7 +51,10 @@ input[type="text"]{
     display: none;
     z-index:2;
     margin: 0px auto;
-    width: 300px;
+    width:500px;
+}
+#result>div{
+    top:20%;
 }
 
 .btn{

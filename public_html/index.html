@@ -24,11 +24,15 @@
                 $(".cancel").click(function(){
                     $("#modal").hide(1000);
                     $("#fon").hide(1000);
+                });
+                
+                $(".rezult-hide").click(function(){
                     $("#result").hide(1000);
                 });
                 
                 $("#ok").click(function(){
                     obj.ok_clear();
+                    $("#result").hide(1000);
                     $("#modal").hide(1000);
                     $("#fon").hide(1000);
                 });
@@ -37,20 +41,6 @@
         </script>
     </head>
     <body style="background:grey;font-family:monospace;margin:0;">
-        <div id="result">
-            <div style="background:white;width:300px;position:absolute;top:20%;">
-                <div class="modal-head">
-                    Результат
-                </div>
-                <div class="modal-body">
-                    <div id="before"></div>
-                    <div id="after" style="margin-bottom:5px;"></div>
-                </div> 
-                <div class="modal-footer">
-                    <div class="cancel btn" style="margin-right:10px;">ОК</div>
-                </div> 
-            </div>
-        </div>
         <div id="fon" style=""></div>
         <div id="modal">
             <div style="top:25%;position:absolute;background:white;width:250px;">
@@ -75,6 +65,37 @@
             <div style="max-width:300px;" id="mass">
                 
             </div>
+        </div>
+        <div id="result">
+            <div style="background:white;width:500px;">
+                <div class="modal-head">
+                    Результат
+                </div>
+                <div class="modal-body">
+                    <div id="before"></div>
+                    <div id="after" style="margin-bottom:5px;"></div>
+                </div> 
+                <div class="modal-footer">
+                    <div class="cancel btn rezult-hide" style="margin-right:10px;">Убрать</div>
+                </div> 
+            </div>
+        </div>
+        <div style="width:500px;margin:0px auto;">
+            <p>
+                Шаг 1. ВВедите колическо элементов массива и нажмите "Постороить сетку" максимально число эл-ов 99.
+            </p>
+            <p>
+                Шаг 2. Заполните все поля, можете воспользоваться кнопкой "Автозаполнение".
+            </p>
+            <p>
+                Шаг 3. Все значения отсортируются и отобразаться в всплывающем блоке выше этого текста.
+            </p>
+            <p>
+                "Очистить массив" очищает всю построенныю сетку
+            </p>
+            <p>
+                P.s. Для корректной работы используйте браузер: Chrome или Safari.
+            </p>
         </div>
     </body>
 </html>

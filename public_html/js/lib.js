@@ -93,30 +93,36 @@ function Task(){
     
     
     //сортировка методом пузырька
+    this.method = function(){
+        tmp=0;
+        data=[];
+        for (i = inp.length - 1; i > 0; i--) {
+            for (j = 0; j < i; j++) {
+                if (parseInt(inp[j].value) > parseInt(inp[j+1].value)) {
+                    tmp = inp[j].value;
+                    inp[j].value = inp[j+1].value;
+                    inp[j+1].value = tmp;
+                    setInterval(console.log('1s'),1000);
+                }
+                data[j]=inp[j].value;
+                data[j+1]=inp[j+1].value;
+            }   
+        }
+        $("#after").text("После: ["+data+"]");
+    }
+    
     this.sotr =  function(){
         data=[];
-        tmp=0;
         for (i = 0; i < inp.length; i++) {
             if((isNaN(parseInt(inp[i].value))||(inp[i].value=='-'))){
-                data.push(0);
-            }else data.push(parseInt(inp[i].value));
+                inp[i].value=0;
+            }
+            data.push(inp[i].value);
         }
         $("#before").text("До: ["+data+"]");
-        //сортировка методом пузырька
-        for (i = data.length - 1; i > 0; i--) {
-            for (j = 0; j < i; j++) {
-                if (data[j] > data[j+1]) {
-                    tmp = data[j];
-                    data[j] = data[j+1];
-                    data[j+1] = tmp;
-                }
-            }
-        }
-        $("#after").text("Результат: ["+data+"]");
-        //выводим отсортированный массив в таблицу
-        for (i = 0; i < inp.length; i++) {
-            inp[i].value=data[i];
-        }
+        //вызов сортировки
+        this.method();
+
         $("#result").show();
     }
     
